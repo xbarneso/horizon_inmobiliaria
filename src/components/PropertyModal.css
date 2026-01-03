@@ -25,7 +25,7 @@
   border-radius: 16px;
   max-width: 800px;
   width: 100%;
-  max-height: 85vh;
+  max-height: 90vh;
   overflow: hidden;
   position: relative;
   animation: slideUp 0.3s ease-out;
@@ -73,6 +73,8 @@
   display: flex;
   flex-direction: column;
   gap: 0;
+  height: 100%;
+  overflow: hidden;
 }
 
 .property-modal-image {
@@ -92,7 +94,10 @@
   flex-direction: column;
   gap: 1.25rem;
   overflow-y: auto;
+  overflow-x: hidden;
   flex: 1;
+  min-height: 0;
+  max-height: calc(90vh - 450px);
 }
 
 .property-modal-title {
@@ -236,6 +241,7 @@
   .property-modal-details {
     padding: 1.75rem;
     gap: 1rem;
+    max-height: calc(90vh - 350px);
   }
 
   .property-modal-title {
