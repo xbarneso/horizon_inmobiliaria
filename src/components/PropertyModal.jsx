@@ -16,14 +16,10 @@ const PropertyModal = ({ property, isOpen, onClose }) => {
     if (isOpen) {
       document.addEventListener('keydown', handleEsc)
       
-      // Centrar el modal en el viewport visible
+      // Asegurar que el overlay esté centrado
       setTimeout(() => {
-        if (modalRef.current) {
-          modalRef.current.scrollIntoView({ 
-            behavior: 'instant', 
-            block: 'center', 
-            inline: 'center' 
-          })
+        if (overlayRef.current) {
+          overlayRef.current.scrollTop = 0
         }
       }, 10)
     }
