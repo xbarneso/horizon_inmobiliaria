@@ -159,6 +159,11 @@ const Properties = ({ onModalChange }) => {
     
     setIsModalOpen(false)
     setSelectedProperty(null)
+    
+    // Notificar al App que el modal está cerrado
+    if (onModalChange) {
+      onModalChange(false)
+    }
   }
 
   return (
