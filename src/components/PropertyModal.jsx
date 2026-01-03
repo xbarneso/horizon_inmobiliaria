@@ -39,8 +39,6 @@ const PropertyModal = ({ property, isOpen, onClose }) => {
 
   if (!isOpen || !property) return null
 
-  const modalContent = (
-
   const formatPrice = (price) => {
     return new Intl.NumberFormat('es-ES', {
       style: 'currency',
@@ -49,8 +47,8 @@ const PropertyModal = ({ property, isOpen, onClose }) => {
     }).format(price)
   }
 
-  return (
-    <div 
+  const modalContent = (
+    <div  
       className="property-modal-overlay" 
       onClick={onClose}
       ref={overlayRef}
