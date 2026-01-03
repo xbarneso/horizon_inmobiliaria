@@ -10,6 +10,7 @@ import './App.css'
 
 function App() {
   const [activeSection, setActiveSection] = useState('home')
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,10 +47,10 @@ function App() {
 
   return (
     <div className="App">
-      <Header activeSection={activeSection} scrollToSection={scrollToSection} />
+      <Header activeSection={activeSection} scrollToSection={scrollToSection} isModalOpen={isModalOpen} />
       <main>
         <Hero scrollToSection={scrollToSection} />
-        <Properties />
+        <Properties onModalChange={setIsModalOpen} />
         <About />
         <Services />
         <Contact />

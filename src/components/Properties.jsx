@@ -4,7 +4,7 @@ import PropertyModal from './PropertyModal'
 import ImageCarousel from './ImageCarousel'
 import './Properties.css'
 
-const Properties = () => {
+const Properties = ({ onModalChange }) => {
   const [ref, isVisible] = useScrollAnimation()
   const [selectedProperty, setSelectedProperty] = useState(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -129,6 +129,11 @@ const Properties = () => {
     // Abrir el modal
     setSelectedProperty(property)
     setIsModalOpen(true)
+    
+    // Notificar al App que el modal está abierto
+    if (onModalChange) {
+      onModalChange(true)
+    }
     
     // Asegurar que el overlay esté centrado (forzar scroll a 0)
     setTimeout(() => {

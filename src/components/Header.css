@@ -139,4 +139,9 @@
   .mobile-menu-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -7px);
   }
+
+  /* Ocultar header cuando el modal está abierto en móvil */
+  .header.modal-open {
+    display: none;
+  }
 }

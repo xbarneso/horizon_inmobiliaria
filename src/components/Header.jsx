@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import './Header.css'
 
-const Header = ({ activeSection, scrollToSection }) => {
+const Header = ({ activeSection, scrollToSection, isModalOpen }) => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
@@ -20,7 +20,7 @@ const Header = ({ activeSection, scrollToSection }) => {
   }
 
   return (
-    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
+    <header className={`header ${isScrolled ? 'scrolled' : ''} ${isModalOpen ? 'modal-open' : ''}`}>
       <div className="header-container">
         <div className="logo" onClick={() => handleNavClick('home')}>
           <img src="/logo.png" alt="Horizon Inmobiliaria" />
