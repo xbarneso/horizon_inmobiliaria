@@ -111,21 +111,6 @@ const Properties = ({ onModalChange }) => {
   }
 
   const handlePropertyClick = (property) => {
-    // Guardar la posición actual del scroll
-    const scrollY = window.scrollY || window.pageYOffset
-    
-    // Hacer scroll al top inmediatamente
-    window.scrollTo({
-      top: 0,
-      behavior: 'instant'
-    })
-    
-    // Bloquear scroll del body y mantener posición visual
-    document.body.style.overflow = 'hidden'
-    document.body.style.position = 'fixed'
-    document.body.style.top = `-${scrollY}px`
-    document.body.style.width = '100%'
-    
     // Abrir el modal
     setSelectedProperty(property)
     setIsModalOpen(true)
@@ -134,29 +119,9 @@ const Properties = ({ onModalChange }) => {
     if (onModalChange) {
       onModalChange(true)
     }
-    
-    // Asegurar que el overlay esté centrado (forzar scroll a 0)
-    setTimeout(() => {
-      const overlay = document.querySelector('.property-modal-overlay')
-      if (overlay) {
-        overlay.scrollTop = 0
-      }
-    }, 10)
   }
 
   const handleCloseModal = () => {
-    // Restaurar el scroll del body
-    const scrollY = document.body.style.top
-    document.body.style.overflow = 'unset'
-    document.body.style.position = ''
-    document.body.style.top = ''
-    document.body.style.width = ''
-    
-    // Restaurar la posición del scroll si había una guardada
-    if (scrollY) {
-      window.scrollTo(0, parseInt(scrollY || '0') * -1)
-    }
-    
     setIsModalOpen(false)
     setSelectedProperty(null)
     

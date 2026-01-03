@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { createPortal } from 'react-dom'
 import ImageCarousel from './ImageCarousel'
 import './PropertyModal.css'
 
@@ -16,20 +17,29 @@ const PropertyModal = ({ property, isOpen, onClose }) => {
     if (isOpen) {
       document.addEventListener('keydown', handleEsc)
       
+      // Bloquear scroll del body cuando el modal está abierto
+      document.body.style.overflow = 'hidden'
+      
       // Asegurar que el overlay esté centrado
       setTimeout(() => {
         if (overlayRef.current) {
           overlayRef.current.scrollTop = 0
         }
       }, 10)
+    } else {
+      // Restaurar scroll del body cuando el modal se cierra
+      document.body.style.overflow = ''
     }
 
     return () => {
       document.removeEventListener('keydown', handleEsc)
+      document.body.style.overflow = ''
     }
   }, [isOpen, onClose])
 
   if (!isOpen || !property) return null
+
+  const modalContent = (
 
   const formatPrice = (price) => {
     return new Intl.NumberFormat('es-ES', {
@@ -132,6 +142,9 @@ const PropertyModal = ({ property, isOpen, onClose }) => {
       </div>
     </div>
   )
+
+  // Renderizar el modal directamente en el body usando createPortal
+  return createPortal(modalContent, document.body)
 }
 
 export default PropertyModal
