@@ -1,0 +1,259 @@
+.property-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(5px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.3s ease-out;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+}
+
+.property-modal {
+  background: var(--color-white);
+  border-radius: 16px;
+  max-width: 1000px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  position: relative;
+  animation: slideUp 0.3s ease-out;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.property-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-white);
+  border: 2px solid #e9ecef;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text);
+  transition: var(--transition);
+}
+
+.property-modal-close:hover {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+  transform: rotate(90deg);
+}
+
+.property-modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.property-modal-image {
+  width: 100%;
+  height: 50vh;
+  min-height: 400px;
+  max-height: 600px;
+  overflow: hidden;
+  border-radius: 16px 16px 0 0;
+  flex-shrink: 0;
+}
+
+
+.property-modal-details {
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.property-modal-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  line-height: 1.3;
+  margin: 0;
+}
+
+.property-modal-location {
+  font-size: 1rem;
+  color: var(--color-text-light);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.property-modal-location::before {
+  content: '📍';
+  font-size: 1.2rem;
+}
+
+.property-modal-price {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  margin: 0.5rem 0;
+}
+
+.property-modal-features {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 1.5rem 0;
+  border-top: 2px solid #f0f0f0;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.feature-item svg {
+  width: 32px;
+  height: 32px;
+  color: var(--color-accent);
+  stroke-width: 2;
+  flex-shrink: 0;
+}
+
+.feature-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.feature-label {
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.feature-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.property-modal-description {
+  margin-top: 1rem;
+}
+
+.property-modal-description h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.property-modal-description p {
+  color: var(--color-text-light);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.property-modal-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 1.5rem;
+}
+
+.property-modal-actions .btn {
+  flex: 1;
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 8px;
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 968px) {
+  .property-modal-image {
+    height: 40vh;
+    min-height: 300px;
+    max-height: 400px;
+  }
+
+  .property-modal-details {
+    padding: 2rem;
+  }
+
+  .property-modal-title {
+    font-size: 1.5rem;
+  }
+
+  .property-modal-price {
+    font-size: 2rem;
+  }
+
+  .property-modal-actions {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .property-modal {
+    max-width: 100%;
+    margin: 10px;
+    max-height: 95vh;
+  }
+
+  .property-modal-overlay {
+    padding: 10px;
+  }
+
+  .property-modal-details {
+    padding: 1.5rem;
+  }
+
+  .property-modal-close {
+    top: 10px;
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    font-size: 24px;
+  }
+}

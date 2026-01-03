@@ -1,0 +1,143 @@
+.about {
+  padding: 100px 0;
+  background: var(--color-white);
+}
+
+.founders-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  margin-top: 3rem;
+}
+
+.founder-card {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  gap: 3rem;
+  align-items: start;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.founder-card-reverse {
+  grid-template-columns: 1fr 350px;
+}
+
+.founder-card-reverse .founder-image {
+  order: 2;
+}
+
+.founder-card-reverse .founder-info {
+  order: 1;
+}
+
+.founder-image {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  transition: var(--transition);
+}
+
+.founder-image:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.founder-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.founder-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.founder-name {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.founder-role {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--color-accent);
+  margin: 0;
+  font-style: italic;
+}
+
+.founder-description {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-text-light);
+  margin: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 968px) {
+  .founder-card,
+  .founder-card-reverse {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .founder-card-reverse .founder-image,
+  .founder-card-reverse .founder-info {
+    order: 0;
+  }
+
+  .founder-image {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .founder-name {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 60px 0;
+  }
+
+  .founders-section {
+    gap: 3rem;
+  }
+
+  .founder-card {
+    gap: 1.5rem;
+  }
+
+  .founder-image {
+    max-width: 100%;
+  }
+
+  .founder-name {
+    font-size: 1.5rem;
+  }
+
+  .founder-role {
+    font-size: 1rem;
+  }
+
+  .founder-description {
+    font-size: 0.95rem;
+  }
+}
