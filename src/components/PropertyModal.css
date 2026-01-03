@@ -31,6 +31,13 @@
   flex-direction: column;
 }
 
+@media (max-width: 768px) {
+  .property-modal {
+    border-radius: 0;
+    max-height: 100vh;
+  }
+}
+
 .property-modal-close {
   position: absolute;
   top: 20px;
@@ -237,16 +244,28 @@
 @media (max-width: 768px) {
   .property-modal {
     max-width: 100%;
-    margin: 10px;
-    max-height: 95vh;
+    margin: 0;
+    max-height: 100vh;
+    border-radius: 0;
+    height: 100vh;
   }
 
   .property-modal-overlay {
-    padding: 10px;
+    padding: 0;
+    align-items: flex-start;
+  }
+
+  .property-modal-image {
+    height: 40vh;
+    min-height: 300px;
+    max-height: 350px;
+    border-radius: 0;
   }
 
   .property-modal-details {
     padding: 1.5rem;
+    max-height: calc(100vh - 40vh);
+    overflow-y: auto;
   }
 
   .property-modal-close {
@@ -255,5 +274,74 @@
     width: 35px;
     height: 35px;
     font-size: 24px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+  }
+
+  .property-modal-title {
+    font-size: 1.25rem;
+  }
+
+  .property-modal-price {
+    font-size: 1.75rem;
+  }
+
+  .property-modal-features {
+    padding: 1rem 0;
+    gap: 1rem;
+  }
+
+  .feature-item {
+    gap: 0.75rem;
+  }
+
+  .feature-item svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .feature-value {
+    font-size: 1.1rem;
+  }
+
+  .property-modal-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-top: 1rem;
+  }
+
+  .property-modal-actions .btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .property-modal-image {
+    height: 35vh;
+    min-height: 250px;
+    max-height: 300px;
+  }
+
+  .property-modal-details {
+    padding: 1rem;
+    max-height: calc(100vh - 35vh);
+  }
+
+  .property-modal-title {
+    font-size: 1.1rem;
+  }
+
+  .property-modal-price {
+    font-size: 1.5rem;
+  }
+
+  .property-modal-description h3 {
+    font-size: 1.1rem;
+  }
+
+  .property-modal-description p {
+    font-size: 0.9rem;
   }
 }

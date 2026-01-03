@@ -152,3 +152,29 @@
     bottom: 15px;
   }
 }
+
+@media (max-width: 768px) {
+  .property-modal .carousel-button {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+  }
+
+  .property-modal .carousel-button-prev {
+    left: 8px;
+  }
+
+  .property-modal .carousel-button-next {
+    right: 8px;
+  }
+
+  .property-modal .carousel-indicators {
+    bottom: 10px;
+    gap: 8px;
+  }
+
+  .property-modal .carousel-indicator {
+    width: 8px;
+    height: 8px;
+  }
+}
